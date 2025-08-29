@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import AllProducts from "./AllProducts";
+//import ProductDetails from "./ProductDetails";
 const Home = () => {
   return (
     <div>
@@ -14,6 +15,7 @@ const Home = () => {
       <Hero />
       <AllProducts/>
       <Footer/>
+      {/* <ProductDetails/> */}
     </div>
   );
 };

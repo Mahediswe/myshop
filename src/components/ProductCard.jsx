@@ -1,30 +1,43 @@
 import React from "react";
+import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
   return (
-    <div className="border rounded-lg shadow-sm hover:shadow-lg transition p-4 flex flex-col">
+    <div className="border rounded-2xl shadow-sm hover:shadow-xl transition duration-300 p-4 flex flex-col relative bg-white">
       {/* Sale Badge */}
       {product.isOnSale && (
-        <span className="absolute bg-orange-500 text-white text-xs px-2 py-1 rounded-tr-lg rounded-bl-lg">
-          ON SALE
+        <span className="absolute top-2 left-2 bg-orange-500 text-white text-xs sm:text-sm px-2 py-1 rounded-tr-lg rounded-bl-lg shadow-md">
+          SALE
         </span>
       )}
 
-      {/* Image */}
-      <img
-        src={product.image}
-        alt={product.name}
-        className="h-40 object-contain mx-auto"
-      />
+      {/* Product Image */}
+      <div
+        className="flex items-center justify-center cursor-pointer"
+        onClick={() => navigate(`/products/${product.id}`)}
+      >
+        <img
+          src={product.images[0]} // শুধু প্রথম image দেখাচ্ছে
+          alt={product.name}
+          className="h-40 sm:h-48 md:h-56 object-contain transition-transform duration-300 hover:scale-105"
+        />
+      </div>
 
-      {/* Name */}
-      <h3 className="mt-3 text-sm font-medium text-gray-800 truncate">
+      {/* Product Name */}
+      <h3
+        onClick={() => navigate(`/products/${product.id}`)}
+        className="mt-3 text-sm sm:text-base font-medium text-gray-800 text-center line-clamp-1 cursor-pointer hover:text-orange-500"
+      >
         {product.name}
       </h3>
 
-      {/* Price */}
-      <div className="mt-2">
-        <span className="text-lg font-bold text-gray-900">
+      {/* Price Section */}
+      <div className="mt-2 flex flex-col items-center">
+        <span className="text-lg sm:text-xl font-bold text-gray-900">
           Tk {product.price.toLocaleString()}
         </span>
         {product.oldPrice && (
@@ -35,7 +48,10 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* Quick Add Button */}
-      <button className="mt-3 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+      <button
+        onClick={() => addToCart(product)}
+        className="mt-4 w-full bg-orange-500 text-white text-sm sm:text-base px-4 py-2 rounded-xl hover:bg-orange-600 transition duration-300 shadow-md"
+      >
         Quick Add
       </button>
     </div>
