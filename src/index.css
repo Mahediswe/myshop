@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* In your global CSS file */
+nav, .navbar, .sticky-nav {
+  z-index: 40 !important;
+}
+
+.cart-sidebar {
+  z-index: 50 !important;
+}

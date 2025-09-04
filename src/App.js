@@ -7,7 +7,10 @@ import Refund from "./components/Refund";
 import Return from "./components/Return";
 //import Products from "./pages/Products";
 import Product from "./pages/Product";
+import Profile from "./pages/Profile";
 import ProductDetail from "./pages/ProductDetail";
+import CustomerService from "./pages/CustomerService";
+import About from "./pages/About";
 function App() {
   return (
     <h1 className="">
@@ -31,10 +34,10 @@ function App() {
           <Route path="/products?category=electronics&subcategory=glider" element={<Product/>} />
 
 
-          <Route path="/about" element={<div>About Page</div>} />
+          <Route path="/about" element={<About/>} />
             <Route path="/return-policy" element={<Return/>} />
             <Route path="/refund-policy" element={<Refund/>} />
-            <Route path="/customer-service" element={<div>Customer Service</div>} />
+            <Route path="/customer-service" element={<CustomerService/>} />
             <Route path="/contact" element={<Contact/>} />
         </Routes>
 
@@ -42,7 +45,7 @@ function App() {
 
          <div className="flex-grow">
           <Routes>
-            <Route path="/profile" element={<div>Profile Page</div>} />
+            <Route path="/profile" element={<Profile/>} />
             <Route path="/cart" element={<Cart/>} />
           </Routes>
         </div>

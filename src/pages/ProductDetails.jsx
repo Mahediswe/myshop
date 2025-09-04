@@ -3,8 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import products from "../data/products";
 import { useCart } from "../context/CartContext";
 import { FaShoppingCart, FaWhatsapp, FaFacebookMessenger } from "react-icons/fa";
-import FeatureBanner from "../components/FeatureBanner";
-
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -231,7 +229,7 @@ const ProductDetails = () => {
           </ul>
         </div>
       </div>
-      <FeatureBanner/>
+    
     </div>
   );
 };

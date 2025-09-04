@@ -2,8 +2,8 @@ import React from 'react';
 
 const FeatureBanner = () => {
   return (
-    <div className="bg-gradient-to-r from-green-50 to-blue-50 py-12 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className=" max-w-7xl mx-auto bg-gradient-to-r from-green-50 to-blue-50 py-12 px-4">
+      <div className="">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Safe Payment Feature */}
